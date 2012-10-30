@@ -297,7 +297,7 @@ h2 {
     display: block; }
 
 /* iPads (landscape) ----------- */
-@media screen and (orientation: landscape) and (max-height: 600px) {
+@media screen and (orientation: landscape) and (max-height: 768px) {
   #container {
     margin: 20px auto 0 auto; }
 
