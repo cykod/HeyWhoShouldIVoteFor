@@ -340,6 +340,26 @@ h2 {
     margin: 20px auto 0 auto; }
 
   h2 {
+    font-size: 70px;
+    padding-bottom: 10px; }
+
+  .question h1, h1 {
+    font-size: 50px; }
+
+  .title .circle h1, .final .circle h1 {
+    font-size: 70px; }
+  .title .circle h2, .final .circle h2 {
+    font-size: 80px;
+    padding-top: 30px; }
+
+  .question .answers .answer .pipe {
+    height: 20px; } }
+/* iPads (landscape) ----------- */
+@media screen and (orientation: landscape) and (max-height: 700px) {
+  #container {
+    margin: 20px auto 0 auto; }
+
+  h2 {
     font-size: 50px;
     padding-bottom: 20px; }
 
