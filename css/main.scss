@@ -56,6 +56,27 @@ transform: rotate($deg);
 }
 
 
+/* safari and chrome */
+@-webkit-keyframes wiggle {
+	0% {-webkit-transform:rotate(4deg);}
+	50% {-webkit-transform:rotate(-4deg);}
+	100% {-webkit-transform:rotate(4deg);}
+}
+ 
+/* firefox */
+@-moz-keyframes wiggle {
+	0% {-moz-transform:rotate(4deg);}
+	50% {-moz-transform:rotate(-4deg);}
+	100% {-moz-transform:rotate(4deg);}
+}
+ 
+/* anyone brave enough to implement the ideal method */
+@keyframes wiggle {
+	0% {transform:rotate(4deg);}
+	50% {transform:rotate(-4deg);}
+	100% {transform:rotate(4deg);}
+}
+
 html { 
   background-color:$brown;
   height:100%;
@@ -104,6 +125,9 @@ body {
     
     .head {
       display:inline-block;
+      -webkit-animation: wiggle 0.5s infinite;
+      -moz-animation: wiggle 0.5s infinite;
+      animation: wiggle 0.5s infinite;
     }
 
 
@@ -180,6 +204,8 @@ body {
     margin:0 auto;
     position:relative;
   }
+
+  h1 { font-size: 60px; }
 
 
   .answers {
@@ -280,6 +306,7 @@ h2 {
 .romney-head {
   background:url(../images/romney.png) no-repeat top left;
 }
+
 
 
 #poll-footer {
@@ -402,7 +429,7 @@ display:block;
 
 
 /* iPads (landscape) ----------- */
-@media screen and (orientation : landscape) and (max-height: 768px)  {
+@media screen and (orientation : landscape) and (max-height: 800px)  {
 
   #container { 
     margin:20px auto 0 auto;
@@ -410,7 +437,9 @@ display:block;
 
 
   h2 { font-size:50px; padding-bottom:20px; }
-  h1 { font-size: 35px; }
+  .question h1, h1 { font-size: 35px; }
+  
+
 
   .title, .final {
 
