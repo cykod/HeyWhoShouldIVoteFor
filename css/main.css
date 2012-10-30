@@ -94,7 +94,7 @@ body {
   height: 500px;
   text-align: center; }
   .title .circle h2, .final .circle h2 {
-    padding-top: 80px; }
+    padding-top: 50px; }
   .title .circle h1, .final .circle h1 {
     color: black;
     padding-bottom: 10px;
@@ -335,7 +335,7 @@ h2 {
     display: block; }
 
 /* iPads (landscape) ----------- */
-@media screen and (orientation: landscape) and (max-height: 800px) {
+@media screen and (orientation: landscape) and (max-height: 768px) {
   #container {
     margin: 20px auto 0 auto; }
 
