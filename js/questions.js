@@ -171,13 +171,13 @@ $(function() {
       data.className = data.voteFor.toLowerCase();
 
       if(data.percent === 0) {
-        data.text = encodeURIComponent("Hey, I shouldn't vote for either of these guys! #election2012");
+        data.text = encodeURIComponent("Hey, I shouldn't vote for either of these guys! #election according to");
         $(this.el).empty().html(Templates['final-template-nobody'](data));
       } else {
         if(data.percent < 10) {
-          data.text = encodeURIComponent("Hey, I should vote for " + data.voteFor + " (well, at least " + data.percent + "0% of me should) #election2012");
+          data.text = encodeURIComponent("Hey, I should vote for " + data.voteFor + " (well, at least " + data.percent + "0% of me should) #election according to");
         } else {
-          data.text = encodeURIComponent("Hey, I should 100% vote for " + data.voteFor + ". #election2012");
+          data.text = encodeURIComponent("Hey, I should 100% vote for " + data.voteFor + ". #election according to");
         }
         $(this.el).empty().html(Templates[this.template](data));
       }
