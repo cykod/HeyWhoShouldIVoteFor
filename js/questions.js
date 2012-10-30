@@ -402,7 +402,7 @@ $(function() {
     },
     { 
       category: "Economy",
-      question: "Should the corporate tax rate be cut?",
+      question: "Should corporations pay less in taxes?",
       left: -1,
       right: 1
     },
