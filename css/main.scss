@@ -34,7 +34,25 @@ transform: rotate($deg);
 
 @mixin transition($property,$length: 1s) {
   -webkit-transition: $property $length;
+  -moz-transition: $property $length;
+  -o-transition: $property $length;
+  -ms-transition: $property $length;
   -transition: $property $length;
+}
+
+
+@mixin button {
+  display:inline-block;
+  text-align:center;
+  background-color:$red;
+  color:white;
+  @include adelle;
+  font-size:28px;
+  text-transform:uppercase;
+  text-decoration:none;
+  min-width:185px;
+  border-radius:5px;
+  padding:10px 5px;
 }
 
 
@@ -45,13 +63,21 @@ html {
 
 body {
   height:100%;
+  overflow:hidden;
 }
 
 #wrapper {
   width:100%;
   height:100%;
-  overflow:hidden;
   position:relative;
+}
+
+#extra {
+  position:absolute;
+  top:0;
+  left:0;
+  width:10px;
+  height:2000px;
 }
 
 #container {
@@ -61,8 +87,77 @@ body {
   position:relative;
 }
 
-article.question {
-  background-color: $brown;
+.final {
+  width: 600px;
+  position:absolute;
+  top:0px;
+
+    .circle {
+      h3 { padding:0px; margin:0px; padding-bottom:5px; }
+      h2 { padding-top:30px; }
+      h1 { font-size: 70px; margin-top:0px; padding-top:0px; letter-spacing:-0.05em; }
+
+      .button { display:inline-block; }
+
+    }
+    text-align:center;
+    
+    .head {
+      display:inline-block;
+    }
+
+
+}
+
+.title {
+  position:relative;
+  width:500px;
+  margin:0 auto;
+}
+
+.title, .final {
+
+  .circle {
+    margin:0 auto;
+    background-color:white;
+    border-radius:50%;
+    width:500px;
+    height:500px;
+
+    h2 { padding-top:80px; }
+    h1 { color:black; padding-bottom:10px; letter-spacing:-0.02em; margin:0 20px; }
+
+    text-align:center;
+    a { 
+      @include button;
+
+    }
+  }
+
+  .bar {
+    position:absolute;
+    top:450px;
+  }
+
+
+  &.transition {
+    @include transition(top);
+  }
+
+  &.next {
+    top: 130%;
+  }
+
+  &.previous {
+    top: -130%;
+
+  }
+
+
+
+}
+
+.question {
   position:absolute;
   left:0px;
   top:0px;
@@ -72,15 +167,17 @@ article.question {
   }
 
   &.next {
-    top: 100%;
+    top: 130%;
   }
 
   &.previous {
-    top: -100%;
+    top: -130%;
 
   }
 
   .question-holder {
+    max-width:500px;
+    margin:0 auto;
     position:relative;
   }
 
@@ -104,18 +201,7 @@ article.question {
       }
 
       a {
-        display:inline-block;
-        text-align:center;
-        background-color:$red;
-        color:white;
-        @include adelle;
-        font-size:28px;
-        text-transform:uppercase;
-        text-decoration:none;
-        text-align:center;
-        min-width:185px;
-        border-radius:5px;
-        padding:10px 5px;
+        @include button;
 
         &:hover {
            background-color:darken($red, 20%);
@@ -142,12 +228,13 @@ article.question {
     }
   }
 
-  .next-line {
-    clear:both;
-      margin:0 auto;
-      width: 15px;
-      background-color:$gray;
-  }
+}
+
+.next-line {
+  clear:both;
+    margin:0 auto;
+    width: 15px;
+    background-color:$gray;
 }
 
 h1 {
@@ -179,6 +266,21 @@ h2 {
   padding-bottom:15px;
 }
 
+.head {
+  width:85px;
+  height:107px;
+  z-index: 10;
+}
+
+
+.obama-head {
+  background:url(../images/obama.png) no-repeat top left;
+}
+
+.romney-head {
+  background:url(../images/romney.png) no-repeat top left;
+}
+
 
 #poll-footer {
   position:fixed;
@@ -186,6 +288,7 @@ h2 {
   height: 63px;
   background-color:$darkbrown;
   width:100%;
+}
 
   .bar {
     height: 63px;
@@ -193,46 +296,161 @@ h2 {
     margin:0 auto;
     background:url(../images/bar.png) no-repeat top left;
     position:relative;
+
+    .head {
+      position:absolute;
+      bottom:-0px;
+      z-index: 10;
+    }
+
+    .obama-head {
+      left:-48px;
+    }
+
+    .romney-head {
+      right:-48px;
+    }
+
+    #marker-wrapper {
+      position:absolute;
+      left: (489px/2 - 23px);
+      bottom:0px;
+
+    }
+
+    #marker {
+      position:absolute;
+      bottom:0px;
+      width: 0;
+      height: 0;
+      border-left: 25px solid transparent;
+      border-right: 25px solid transparent;
+      border-bottom: 35px solid white;
+
+      @include transition(left);
+    }
   }
 
-  .head {
+@mixin cover {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#background {
+  top:0px;
+
+  position:absolute;
+  width:100%;
+  height:100%;
+
+  div { 
     position:absolute;
-    bottom:-0px;
-    width:85px;
-    height:107px;
-    z-index: 10;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+    display:none;
+  }
+
+  #background1 {
+    background:url(../images/military.jpg) no-repeat center center fixed;
+    @include cover;
+  }
+
+  #background2 {
+    background:url(../images/marriage.jpg) no-repeat center center fixed;
+    @include cover;
+  }
+
+  #background3 {
+    background:url(../images/warming.jpg) no-repeat center center fixed;
+    @include cover;
+  }
+
+  #background4 {
+    background:url(../images/hospital.jpg) no-repeat center center fixed;
+    @include cover;
+  }
+
+  #background5 {
+    background:url(../images/windmills.jpg) no-repeat center center fixed;
+    @include cover;
   }
 
 
-  #obama-head {
-    background:url(../images/obama.png) no-repeat top left;
-    left:-48px;
+  #cover {
+
+
+
+background: -moz-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.15) 1%, rgba(0,0,0,0.7) 100%); /* FF3.6+ */
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(0,0,0,0.15)), color-stop(1%,rgba(0,0,0,0.15)), color-stop(100%,rgba(0,0,0,0.7))); /* Chrome,Safari4+ */
+background: -webkit-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.15) 0%,rgba(0,0,0,0.15) 1%,rgba(0,0,0,0.7) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.15) 0%,rgba(0,0,0,0.15) 1%,rgba(0,0,0,0.7) 100%); /* Opera 12+ */
+background: -ms-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.15) 0%,rgba(0,0,0,0.15) 1%,rgba(0,0,0,0.7) 100%); /* IE10+ */
+background: radial-gradient(ellipse at center,  rgba(0,0,0,0.15) 0%,rgba(0,0,0,0.15) 1%,rgba(0,0,0,0.7) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#26000000', endColorstr='#b3000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+display:block;
+
+
   }
-
-  #romney-head {
-    background:url(../images/romney.png) no-repeat top left;
-    right:-48px;
-  }
-
-  #marker-wrapper {
-    position:absolute;
-    left: (489px/2 - 23px);
-    bottom:0px;
-
-  }
-
-  #marker {
-    position:absolute;
-    bottom:0px;
-    width: 0;
-    height: 0;
-    border-left: 25px solid transparent;
-    border-right: 25px solid transparent;
-    border-bottom: 35px solid white;
-
-    @include transition(left);
-  }
+  
 
 }
 
 
+/* iPads (landscape) ----------- */
+@media screen and (orientation : landscape) and (max-height: 600px)  {
+
+  #container { 
+    margin:20px auto 0 auto;
+  }
+
+
+  h2 { font-size:50px; padding-bottom:20px; }
+  h1 { font-size: 35px; }
+
+  .title, .final {
+
+    .circle { 
+      h1 { font-size: 50px; }
+      h2 { font-size:60px; padding-top:30px; }
+    }
+    .bar {
+      position:absolute;
+      top:320px;
+    }
+
+  }
+
+  .final {
+    .circle  {
+      width:400px;
+      height:400px;
+
+    }
+
+  }
+   .question {
+    .answers {
+      .answer {
+        .pipe {
+          height:5px;
+        }
+      }
+    }
+  }
+}
+
+#attribution {
+  position:absolute;
+  right:0px;
+  bottom:10px;
+  z-index:20;
+  color:white;
+  a { color:white; }
+
+
+}

@@ -8,11 +8,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <title></title>
 <meta name="description" content="">
-<meta name="viewport" content="width=900">
+<meta name="viewport" content="width=850, user-scalable=no">
 
 <script type="text/javascript" src="//use.typekit.net/the1ixe.js"></script>
 <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
+<script>
+var _gaq=[['_setAccount','UA-2011791-42'],['_trackPageview']];
+</script>
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
 <link rel="stylesheet" href="css/normalize.css">
@@ -26,12 +29,21 @@
 
 <!-- Add your site or application content here -->
 
-<div id='wrapper'>
-
+<div id='background'>
+  <div class='bg' id='background1'></div>
+  <div class='bg' id='background2'></div>
+  <div class='bg' id='background3'></div>
+  <div class='bg' id='background4'></div>
+  <div class='bg' id='background5'></div>
+  <div id='cover'></div>
 </div>
 
+<div id='wrapper'>
+</div>
+<div id='extra'></div>
+
 <script id='question-template' type='handlebars'>
-  <h2>{{category}}<h2>
+  <h2>{{category}}</h2>
   <h1> {{question}}
     <div class='stub'></div>
   </h1>
@@ -40,22 +52,70 @@
     <div class='ruler'></div>
     <div class='answer left'>
       <div class='pipe'></div>
-      <a class='left-answer' href='#'>{{left}}</a>
+      <a class='left-answer' href='#'>No</a>
     </div>
 
     <div class='answer right'>
       <div class='pipe'></diV>
-      <a class='right-answer' href='#'>{{right}}</a>
+      <a class='right-answer' href='#'>Yes</a>
     </div>
   </div>
 </div>
 <div class='next-line'></div>
 </script>
 
+<script id='title-template' type='handlebars'>
+
+<div class='circle'> 
+  <h2>Hey!</h2>
+  <h1>Who should I vote for?</h1>
+  <a href='#' class='start'>Start Now</a>
+</div>
+
+<div class='bar'> 
+  <div class='head obama-head'></div>
+  <div class='head romney-head'></div>
+  <div id='bar'></div>
+</div>
+
+<div class='next-line'></div>
+</script>
+
+<script id='final-template' type='handlebars'>
+<div class='final-wrapper'> 
+  <div class='circle'> 
+    <h2>Hey!</h2>
+    <h1>You should vote for:</h1>
+    <div class='head {{className}}-head'></div>
+    <h3>(Leaning {{percent}}0% {{voteFor}})</h3>
+    <div class='button'>
+    <iframe allowtransparency="true" frameborder="0" scrolling="no"
+        src="https://platform.twitter.com/widgets/tweet_button.html?url={{url}}&text={{text}}"
+        style="width:130px; height:20px;"></iframe>
+    </div>
+  </div>
+</div>
+</script>
+
+<script id='final-template-nobody' type='handlebars'>
+<div class='final-wrapper'> 
+  <div class='circle'> 
+    <h2>Hey!</h2>
+    <h1>You should vote for:<br/> a 3rd party!</h1>
+    <h3>Sorry, you're ideologically divided!</h3>
+    <div class='button'>
+    <iframe allowtransparency="true" frameborder="0" scrolling="no"
+        src="https://platform.twitter.com/widgets/tweet_button.html?url={{url}}&text={{text}}"
+        style="width:130px; height:20px;"></iframe>
+    </div>
+  </div>
+</div>
+</script>
+
 <script id='bar-template' type='handlebars'>
 <div class='bar'> 
-  <div class='head' id='obama-head'></div>
-  <div class='head' id='romney-head'></div>
+  <div class='head obama-head'></div>
+  <div class='head romney-head'></div>
   <div id='bar'></div>
   <div id='marker-wrapper'>
     <div id='marker'></div>
@@ -64,6 +124,10 @@
 </script>
 
 
+<div id='attribution'>
+  Site by <a href='http://twitter.com/cykod'>@cykod</a> &amp; <a href='http://twitter.com/artimated'>@artimated</a>
+
+</div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.2.min.js"><\/script>')</script>
@@ -72,13 +136,43 @@
 <script src="js/backbone-min.js"></script>
 <script src="js/handlebars-1.0.js"></script>
 <script src="js/questions.js"></script>
+<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.1.7.min.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <script>
-var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
 (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
  g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
  s.parentNode.insertBefore(g,s)}(document,'script'));
 </script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+<div style='z-index:5;left:5px;top:5px;position:absolute;' id='social'>
+<!-- AddThis Button BEGIN -->
+<script>
+ var addthis_share =
+{
+  url: "http://HeyWhoShouldIVoteFor.com"
+}
+</script>
+<div class="addthis_toolbox addthis_default_style ">
+  <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+  <a class="addthis_button_tweet"></a>
+  <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+</div>
+<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+<script type="text/javascript" async="true" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4e5d96511b13dffd"></script>
+</div>
+
+<!-- 
+WikiMedia Image Credits:
+
+http://commons.wikimedia.org/wiki/File:%C3%89oliennes_Caen.jpg
+http://commons.wikimedia.org/wiki/File:Hospital_Pharmacy.JPG
+http://commons.wikimedia.org/wiki/File:Greenland_Kangerlussuaq_icesheet.jpg
+http://commons.wikimedia.org/wiki/File:Just_married_place_de_la_Concorde.jpg
+http://commons.wikimedia.org/wiki/File:Defense.gov_News_Photo_021123-D-9880W-118.jpg
+-->
 </body>
 </html>

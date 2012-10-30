@@ -1,0 +1,333 @@
+html {
+  background-color: #342d2b;
+  height: 100%; }
+
+body {
+  height: 100%;
+  overflow: hidden; }
+
+#wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative; }
+
+#extra {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 2000px; }
+
+#container {
+  margin: 50px auto 0px auto;
+  height: 100%;
+  max-width: 600px;
+  position: relative; }
+
+.final {
+  width: 600px;
+  position: absolute;
+  top: 0px;
+  text-align: center; }
+  .final .circle h3 {
+    padding: 0px;
+    margin: 0px;
+    padding-bottom: 5px; }
+  .final .circle h2 {
+    padding-top: 30px; }
+  .final .circle h1 {
+    font-size: 70px;
+    margin-top: 0px;
+    padding-top: 0px;
+    letter-spacing: -0.05em; }
+  .final .circle .button {
+    display: inline-block; }
+  .final .head {
+    display: inline-block; }
+
+.title {
+  position: relative;
+  width: 500px;
+  margin: 0 auto; }
+
+.title .circle, .final .circle {
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 50%;
+  width: 500px;
+  height: 500px;
+  text-align: center; }
+  .title .circle h2, .final .circle h2 {
+    padding-top: 80px; }
+  .title .circle h1, .final .circle h1 {
+    color: black;
+    padding-bottom: 10px;
+    letter-spacing: -0.02em;
+    margin: 0 20px; }
+  .title .circle a, .final .circle a {
+    display: inline-block;
+    text-align: center;
+    background-color: #f15a24;
+    color: white;
+    font-family: adelle;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 28px;
+    text-transform: uppercase;
+    text-decoration: none;
+    min-width: 185px;
+    border-radius: 5px;
+    padding: 10px 5px; }
+.title .bar, .final .bar {
+  position: absolute;
+  top: 450px; }
+.title.transition, .final.transition {
+  -webkit-transition: top 1s;
+  -moz-transition: top 1s;
+  -o-transition: top 1s;
+  -ms-transition: top 1s;
+  -transition: top 1s; }
+.title.next, .final.next {
+  top: 130%; }
+.title.previous, .final.previous {
+  top: -130%; }
+
+.question {
+  position: absolute;
+  left: 0px;
+  top: 0px; }
+  .question.transition {
+    -webkit-transition: top 1s;
+    -moz-transition: top 1s;
+    -o-transition: top 1s;
+    -ms-transition: top 1s;
+    -transition: top 1s; }
+  .question.next {
+    top: 130%; }
+  .question.previous {
+    top: -130%; }
+  .question .question-holder {
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative; }
+  .question .answers .ruler {
+    height: 15px;
+    background-color: #999999;
+    margin: 0 100px; }
+  .question .answers .answer {
+    width: 50%;
+    float: left; }
+    .question .answers .answer .pipe {
+      margin: 0 100px;
+      width: 15px;
+      background-color: #999999;
+      height: 83px; }
+    .question .answers .answer a {
+      display: inline-block;
+      text-align: center;
+      background-color: #f15a24;
+      color: white;
+      font-family: adelle;
+      font-weight: 700;
+      font-style: normal;
+      font-size: 28px;
+      text-transform: uppercase;
+      text-decoration: none;
+      min-width: 185px;
+      border-radius: 5px;
+      padding: 10px 5px; }
+      .question .answers .answer a:hover {
+        background-color: #a4330b; }
+      .question .answers .answer a.selected {
+        background-color: #8d2c09; }
+  .question .answers .left {
+    text-align: left; }
+  .question .answers .right {
+    text-align: right; }
+    .question .answers .right .pipe {
+      float: right; }
+
+.next-line {
+  clear: both;
+  margin: 0 auto;
+  width: 15px;
+  background-color: #999999; }
+
+h1 {
+  font-family: brandon-grotesque;
+  font-weight: 900;
+  font-style: normal;
+  line-height: 0.9em;
+  text-align: center;
+  font-size: 70px;
+  color: white;
+  text-transform: uppercase;
+  margin: 0px;
+  padding: 0px; }
+  h1 .stub {
+    margin: 10px auto 0 auto;
+    width: 15px;
+    background-color: #999999;
+    height: 35px; }
+
+h2 {
+  font-family: bistro-script-web;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1em;
+  text-align: center;
+  -webkit-transform: rotate(-8deg);
+  -moz-transform: rotate(-8deg);
+  -ms-transform: rotate(-8deg);
+  -o-transform: rotate(-8deg);
+  transform: rotate(-8deg);
+  color: #f15a24;
+  font-size: 91px;
+  margin: 0px;
+  padding: 0px;
+  padding-bottom: 15px; }
+
+.head {
+  width: 85px;
+  height: 107px;
+  z-index: 10; }
+
+.obama-head {
+  background: url(../images/obama.png) no-repeat top left; }
+
+.romney-head {
+  background: url(../images/romney.png) no-repeat top left; }
+
+#poll-footer {
+  position: fixed;
+  bottom: 0px;
+  height: 63px;
+  background-color: #0d0b0b;
+  width: 100%; }
+
+.bar {
+  height: 63px;
+  width: 489px;
+  margin: 0 auto;
+  background: url(../images/bar.png) no-repeat top left;
+  position: relative; }
+  .bar .head {
+    position: absolute;
+    bottom: 0px;
+    z-index: 10; }
+  .bar .obama-head {
+    left: -48px; }
+  .bar .romney-head {
+    right: -48px; }
+  .bar #marker-wrapper {
+    position: absolute;
+    left: 221.5px;
+    bottom: 0px; }
+  .bar #marker {
+    position: absolute;
+    bottom: 0px;
+    width: 0;
+    height: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 35px solid white;
+    -webkit-transition: left 1s;
+    -moz-transition: left 1s;
+    -o-transition: left 1s;
+    -ms-transition: left 1s;
+    -transition: left 1s; }
+
+#background {
+  top: 0px;
+  position: absolute;
+  width: 100%;
+  height: 100%; }
+  #background div {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    display: none; }
+  #background #background1 {
+    background: url(../images/military.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; }
+  #background #background2 {
+    background: url(../images/marriage.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; }
+  #background #background3 {
+    background: url(../images/warming.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; }
+  #background #background4 {
+    background: url(../images/hospital.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; }
+  #background #background5 {
+    background: url(../images/windmills.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; }
+  #background #cover {
+    background: -moz-radial-gradient(center, ellipse cover, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.15) 1%, rgba(0, 0, 0, 0.7) 100%);
+    /* FF3.6+ */
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(0, 0, 0, 0.15)), color-stop(1%, rgba(0, 0, 0, 0.15)), color-stop(100%, rgba(0, 0, 0, 0.7)));
+    /* Chrome,Safari4+ */
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.15) 1%, rgba(0, 0, 0, 0.7) 100%);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-radial-gradient(center, ellipse cover, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.15) 1%, rgba(0, 0, 0, 0.7) 100%);
+    /* Opera 12+ */
+    background: -ms-radial-gradient(center, ellipse cover, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.15) 1%, rgba(0, 0, 0, 0.7) 100%);
+    /* IE10+ */
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.15) 1%, rgba(0, 0, 0, 0.7) 100%);
+    /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#26000000', endColorstr='#b3000000',GradientType=1 );
+    /* IE6-9 fallback on horizontal gradient */
+    display: block; }
+
+/* iPads (landscape) ----------- */
+@media screen and (orientation: landscape) and (max-height: 600px) {
+  #container {
+    margin: 20px auto 0 auto; }
+
+  h2 {
+    font-size: 50px;
+    padding-bottom: 20px; }
+
+  h1 {
+    font-size: 35px; }
+
+  .title .circle h1, .final .circle h1 {
+    font-size: 50px; }
+  .title .circle h2, .final .circle h2 {
+    font-size: 60px;
+    padding-top: 30px; }
+  .title .bar, .final .bar {
+    position: absolute;
+    top: 320px; }
+
+  .final .circle {
+    width: 400px;
+    height: 400px; }
+
+  .question .answers .answer .pipe {
+    height: 5px; } }
+#attribution {
+  position: absolute;
+  right: 0px;
+  bottom: 10px;
+  z-index: 20;
+  color: white; }
+  #attribution a {
+    color: white; }
