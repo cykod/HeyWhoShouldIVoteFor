@@ -1,3 +1,36 @@
+/* safari and chrome */
+@-webkit-keyframes wiggle {
+  0% {
+    -webkit-transform: rotate(4deg); }
+
+  50% {
+    -webkit-transform: rotate(-4deg); }
+
+  100% {
+    -webkit-transform: rotate(4deg); } }
+
+/* firefox */
+@-moz-keyframes wiggle {
+  0% {
+    -moz-transform: rotate(4deg); }
+
+  50% {
+    -moz-transform: rotate(-4deg); }
+
+  100% {
+    -moz-transform: rotate(4deg); } }
+
+/* anyone brave enough to implement the ideal method */
+@keyframes wiggle {
+  0% {
+    transform: rotate(4deg); }
+
+  50% {
+    transform: rotate(-4deg); }
+
+  100% {
+    transform: rotate(4deg); } }
+
 html {
   background-color: #342d2b;
   height: 100%; }
@@ -43,7 +76,10 @@ body {
   .final .circle .button {
     display: inline-block; }
   .final .head {
-    display: inline-block; }
+    display: inline-block;
+    -webkit-animation: wiggle 0.5s infinite;
+    -moz-animation: wiggle 0.5s infinite;
+    animation: wiggle 0.5s infinite; }
 
 .title {
   position: relative;
@@ -110,6 +146,8 @@ body {
     max-width: 500px;
     margin: 0 auto;
     position: relative; }
+  .question h1 {
+    font-size: 60px; }
   .question .answers .ruler {
     height: 15px;
     background-color: #999999;
@@ -297,7 +335,7 @@ h2 {
     display: block; }
 
 /* iPads (landscape) ----------- */
-@media screen and (orientation: landscape) and (max-height: 768px) {
+@media screen and (orientation: landscape) and (max-height: 800px) {
   #container {
     margin: 20px auto 0 auto; }
 
@@ -305,7 +343,7 @@ h2 {
     font-size: 50px;
     padding-bottom: 20px; }
 
-  h1 {
+  .question h1, h1 {
     font-size: 35px; }
 
   .title .circle h1, .final .circle h1 {
