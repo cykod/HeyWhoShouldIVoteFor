@@ -402,7 +402,7 @@ $(function() {
     },
     { 
       category: "Economy",
-      question: "Should corporations pay less in taxes?",
+      question: "To Jumpstart the economy, should corporations pay less taxes?",
       left: -1,
       right: 1
     },
